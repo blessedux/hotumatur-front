@@ -15,6 +15,7 @@ import { SideCart } from '../components/SideCart';
 
 // Components
 import Link from "next/link";
+import Navigation from '../components/nav/Navigation'; // Import the Navigation component
 
 // Icons
 import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
@@ -25,6 +26,7 @@ export default function Home() {
 
   return (
     <CartProvider>
+
       {/* Hero Section */}
       <Hero />
       <TourGallery />

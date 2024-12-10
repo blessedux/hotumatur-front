@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Section, Container } from "@/components/craft";
 import { Button } from "@/components/ui/button";
 import Balancer from "react-wrap-balancer";
+import BookingForm from './BookingForm';
 
 // Asset imports
 import Logo from "@/public/logo.svg";
@@ -49,6 +50,7 @@ const Hero = () => {
             <Link href="/posts">Dolor Sit Amet &rarr;</Link>
           </Button>
         </div>
+        <BookingForm/>
       </div>
     </div>
   );
