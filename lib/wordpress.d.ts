@@ -229,6 +229,18 @@ export type FeaturedMedia = {
   source_url: string;
 };
 
+export interface WordPressPage {
+  id: number;
+  slug: string;
+  title: {
+    rendered: string;
+  };
+  content: {
+    rendered: string;
+  };
+}
+
+
 type FilterBarProps = {
   authors: Author[];
   tags: Tag[];

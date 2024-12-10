@@ -70,6 +70,20 @@ export async function getWooCommerceProducts(
   }
 }
 
+
+import { WordPressPage } from "./wordpress.d";
+
+export async function getAllPages(): Promise<WordPressPage[]> {
+  const response = await fetch('https://tu-sitio-wordpress.com/wp-json/wp/v2/pages');
+  if (!response.ok) {
+    throw new Error('Error fetching pages');
+  }
+  const pages = await response.json();
+  return pages;
+}
+
+
+
 // Redirect to WooCommerce Checkout
 export function redirectToCheckout(): void {
   const baseUrl = process.env.WORDPRESS_URL;
