@@ -25,6 +25,29 @@ function getUrl(path: string, query?: Record<string, any>) {
 
 // WordPress Functions
 
+export async function getWooCommerceProducts(
+  query?: Record<string, any>
+): Promise<any[]> {
+  const url = getUrl("/wp-json/wc/v3/products", query);
+  const authHeader = `Basic ${Buffer.from(
+    `${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`
+  ).toString("base64")}`;
+
+  const response = await fetch(url, {
+    headers: {
+      Authorization: authHeader,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch products: ${response.statusText}`);
+  }
+
+  const products: any[] = await response.json();
+  return products;
+}
+
 export async function getAllPosts(filterParams?: {
   author?: string;
   tag?: string;

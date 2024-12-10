@@ -1,7 +1,8 @@
 // Define the menu items
 export const mainMenu = {
-  home: "/",
-  about: "https://github.com/9d8dev/next-wp",
+  Tours: "/",
+  nosotros: "https://www.hotumatur.com/nosotros",
+  contacto: "",
   blog: "/posts",
 };
 
