@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description:
     "Hotumatur transforma tu visita en Rapa Nui en una experiencia inolvidable: tours personalizados, historias ancestrales y compromiso con la excelencia en cada aventura.",
   metadataBase: new URL("https://hotumatur.com"),
-};
+};  
 
 // Revalidate content every hour
 export const revalidate = 3600;
@@ -66,10 +66,10 @@ const Nav = ({ className, children, id }: NavProps) => {
   return (
     <nav
       className={cn(
-        "sticky z-50 top-0 bg-background",
-        "border-b",
+        "sticky z-50 top-0 bg-transparent", // Set background to transparent
+        "border-b border-transparent", // Remove the border or make it transparent
         "fade-in",
-        className,
+        className
       )}
       id={id}
     >
@@ -92,14 +92,84 @@ const Nav = ({ className, children, id }: NavProps) => {
         </Link>
         {children}
         <div className="flex items-center gap-2">
-          <div className="mx-2 hidden md:flex">
-            {Object.entries(mainMenu).map(([key, href]) => (
-              <Button key={href} asChild variant="ghost" size="sm">
-                <Link href={href}>
-                  {key.charAt(0).toUpperCase() + key.slice(1)}
-                </Link>
+          <div className="mx-2 hidden md:flex items-center">
+            {/* Dropdown for "Tours" */}
+            <div className="relative group">
+              <Button variant="ghost" size="sm" className="relative">
+                Tours
               </Button>
-            ))}
+              <div
+                className="absolute left-0 top-full hidden group-hover:flex flex-col bg-background border mt-2 p-2 rounded shadow-md z-50"
+              >
+                <Link
+                  href="/tours/grupal"
+                  className="px-4 py-2 hover:bg-muted rounded"
+                >
+                  Tour Grupal
+                </Link>
+                <Link
+                  href="/tours/privado"
+                  className="px-4 py-2 hover:bg-muted rounded"
+                >
+                  Tour Privado
+                </Link>
+                <div className="relative group">
+                  <Button variant="ghost" size="sm" className="w-full text-left">
+                    Tour Especial
+                  </Button>
+                  <div
+                    className="absolute left-full top-0 hidden group-hover:flex flex-col bg-background border mt-0 p-2 rounded shadow-md z-50"
+                  >
+                    <Link
+                      href="/tours/especial/corporativo"
+                      className="px-4 py-2 hover:bg-muted rounded"
+                    >
+                      Corporativo
+                    </Link>
+                    <Link
+                      href="/tours/especial/gira-de-estudios"
+                      className="px-4 py-2 hover:bg-muted rounded"
+                    >
+                      Gira de Estudios
+                    </Link>
+                    <Link
+                      href="/tours/especial/agencias"
+                      className="px-4 py-2 hover:bg-muted rounded"
+                    >
+                      Agencias
+                    </Link>
+                    <Link
+                      href="/tours/especial/tercera-edad"
+                      className="px-4 py-2 hover:bg-muted rounded"
+                    >
+                      Tercera Edad
+                    </Link>
+                    <Link
+                      href="/tours/especial/cruceros"
+                      className="px-4 py-2 hover:bg-muted rounded"
+                    >
+                      Cruceros
+                    </Link>
+                    <Link
+                      href="/tours/especial/vuelos-privados"
+                      className="px-4 py-2 hover:bg-muted rounded"
+                    >
+                      Vuelos Privados
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Other Menu Items */}
+            {Object.entries(mainMenu)
+              .filter(([key]) => key !== "tours")
+              .map(([key, href]) => (
+                <Button key={href} asChild variant="ghost" size="sm">
+                  <Link href={href}>
+                    {key.charAt(0).toUpperCase() + key.slice(1)}
+                  </Link>
+                </Button>
+              ))}
           </div>
           <Button asChild className="hidden sm:flex">
             <Link href="https://hotumatur.com/tours">Reservar Tour</Link>

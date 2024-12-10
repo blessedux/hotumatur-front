@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCart } from './CartProvider';
 import { Button } from "@/components/ui/button";
+import { fetchProducts } from '@/lib/wordpress'; // Import the fetchProducts function
 
 export function ProductList() {
   const { addToCart } = useCart();
@@ -10,13 +11,9 @@ export function ProductList() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const getProducts = async () => {
       try {
-        const response = await fetch('/api/products'); // Fetch from your proxy API
-        if (!response.ok) {
-          throw new Error('Failed to fetch products');
-        }
-        const data = await response.json();
+        const data = await fetchProducts(); // Fetch products from WooCommerce
 
         // Filter products by category "Rental" (case-insensitive)
         const rentalProducts = data.filter((product: any) =>
@@ -32,7 +29,7 @@ export function ProductList() {
       }
     };
 
-    fetchProducts();
+    getProducts();
   }, []);
 
   if (error) {

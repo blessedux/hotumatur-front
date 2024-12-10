@@ -20,14 +20,14 @@ export function SideCart({ isOpen, onClose }: SideCartProps) {
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
       <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-lg p-4 overflow-y-auto">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">Your Cart</h2>
+          <h2 className="text-xl font-bold">Tu carrito</h2>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">Cerrar</span>
           </Button>
         </div>
         {cart.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <p>Tu carrito está vacío</p>
         ) : (
           <>
             {cart.map((item) => (
@@ -43,7 +43,7 @@ export function SideCart({ isOpen, onClose }: SideCartProps) {
                   size="sm"
                   onClick={() => removeFromCart(item.id)}
                 >
-                  Remove
+                  Eliminar
                 </Button>
               </div>
             ))}
@@ -52,10 +52,10 @@ export function SideCart({ isOpen, onClose }: SideCartProps) {
             </div>
             <div className="mt-4 space-y-2">
               <Button className="w-full" onClick={() => window.location.href = '/checkout'}>
-                Proceed to Checkout
+                Proceder al Checkout
               </Button>
               <Button variant="outline" className="w-full" onClick={clearCart}>
-                Clear Cart
+                Limpiar Carrito
               </Button>
             </div>
           </>
