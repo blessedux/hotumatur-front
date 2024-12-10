@@ -1,101 +1,53 @@
-'use client'
+import React, { useState } from "react";
+import { addProductToCart, redirectToCheckout } from "../lib/wordpress";
 
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select } from "@/components/ui/select"
-
-interface Product {
-  id: number
-  name: string
-}
-
-interface BookingFormProps {
-  products: Product[]
-}
-
-export function BookingForm({ products }: BookingFormProps) {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [selectedProduct, setSelectedProduct] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [message, setMessage] = useState('')
+const BookingForm: React.FC<{ productId: number }> = ({ productId }) => {
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setMessage('')
+    e.preventDefault();
+    setLoading(true);
 
     try {
-      const response = await fetch('/api/book', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, productId: selectedProduct }),
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        setMessage('Booking successful!')
-        setName('')
-        setEmail('')
-        setSelectedProduct('')
-      } else {
-        setMessage(`Booking failed: ${data.message}`)
-      }
+      await addProductToCart(productId, 1, { date, time });
+      redirectToCheckout();
     } catch (error) {
-      setMessage('An error occurred. Please try again.')
+      console.error("Error adding product to cart:", error);
+      alert("Failed to add product to cart. Please try again.");
     } finally {
-      setIsSubmitting(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="booking-form">
       <div>
-        <Label htmlFor="product">Select a Product</Label>
-        <Select
-          id="product"
-          value={selectedProduct}
-          onChange={(e) => setSelectedProduct(e.target.value)}
-          required
-        >
-          <option value="">Select a product</option>
-          {products.map((product) => (
-            <option key={product.id} value={product.id}>
-              {product.name}
-            </option>
-          ))}
-        </Select>
-      </div>
-      <div>
-        <Label htmlFor="name">Name</Label>
-        <Input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+        <label htmlFor="date">Select Date</label>
+        <input
+          type="date"
+          id="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
           required
         />
       </div>
       <div>
-        <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+        <label htmlFor="time">Select Time</label>
+        <input
+          type="time"
+          id="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
           required
         />
       </div>
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Booking...' : 'Book Now'}
-      </Button>
-      {message && <p className="mt-4 text-sm font-medium text-center">{message}</p>}
+      <button type="submit" disabled={loading}>
+        {loading ? "Processing..." : "Book Now"}
+      </button>
     </form>
-  )
-}
+  );
+};
 
+export default BookingForm;
