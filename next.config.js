@@ -4,15 +4,13 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-       HEAD:next.config.mjs
-        protocol: 'https',
-        hostname: 'hotumatur.com',
-        pathname: '/wp-content/uploads/**', // Path to images in WordPress
+        protocol: "https",
+        hostname: process.env.WORDPRESS_HOSTNAME,
+        port: "",
+        pathname: "/**",
       },
     ],
   },
 };
 
-   HEAD:next.config.mjs
-export default nextConfig;
-
+module.exports = nextConfig;
