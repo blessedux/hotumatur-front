@@ -3,10 +3,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: process.env.WORDPRESS_HOSTNAME,
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'hotumatur.com',
+        pathname: '/wp-content/uploads/**', // Path to images in WordPress
       },
     ],
   },
