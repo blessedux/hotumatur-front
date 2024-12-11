@@ -56,20 +56,21 @@ const Hero: React.FC = () => {
       {/* Overlay Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen w-full text-center text-white px-4">
         <Container>
+        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto font-satisfy text-2xl md:text-3xl">
+          <Balancer>
+            Conoce la magia de Rapa Nui
+          </Balancer>
+          </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
             <Balancer>Aventuras Guiadas por Expertos Locales</Balancer>
           </h1>
-          <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            <Balancer>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Balancer>
-          </p>
+        
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <Link href="/" ><h4 className='text-white'>Lorem Ipsum</h4></Link>
+              <Link href="/" ><h4 className='text-white'>Tours</h4></Link>
             </Button>
             <Button variant="outline" asChild size="lg">
-              <Link href="/posts">Dolor Sit Amet &rarr;</Link>
+              <Link href="/posts" className='text-black'>Reservar ahora &rarr;</Link>
             </Button>
           </div>
         </Container>

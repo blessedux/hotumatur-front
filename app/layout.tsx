@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import { Satisfy as FontSatisfy } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "../components/Footer";
@@ -7,17 +8,17 @@ import { ClientNav } from "../components/nav/ClientNav";
 
 import "./globals.css";
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-import Logo from "@/public/logo.svg";
-
-import Image from "next/image";
-import Link from "next/link";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const fontSatisfy = FontSatisfy({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-satisfy",
 });
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
+        className={cn("min-h-screen font-sans antialiased", fontSans.variable, fontSatisfy.variable)}
       >
         <ThemeProvider
           attribute="class"
@@ -56,4 +57,3 @@ export default function RootLayout({
     </html>
   );
 }
-
