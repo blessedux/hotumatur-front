@@ -6,13 +6,13 @@ export default function Navigation() {
   return (
     <nav className="flex flex-wrap justify-center gap-8 p-4 bg-white shadow">
       <Link
-        href="/contacto"
+        href="/contact"
         className="text-sm uppercase tracking-wider hover:text-emerald-300 transition-colors"
       >
         Contacto
       </Link>
       <Link
-        href="/nosotros"
+        href="/contacto"
         className="text-sm uppercase tracking-wider hover:text-emerald-300 transition-colors"
       >
         Nosotros

@@ -1,5 +1,6 @@
 import querystring from "query-string";
 
+
 // Utility function to construct URLs
 function getUrl(path: string, query?: Record<string, any>): string {
   const baseUrl = process.env.WORDPRESS_URL;
@@ -74,7 +75,7 @@ export async function getWooCommerceProducts(
 import { WordPressPage } from "./wordpress.d";
 
 export async function getAllPages(): Promise<WordPressPage[]> {
-  const response = await fetch('https://tu-sitio-wordpress.com/wp-json/wp/v2/pages');
+  const response = await fetch('https://hotumatur.com/wp-json/wp/v2/pages');
   if (!response.ok) {
     throw new Error('Error fetching pages');
   }
@@ -180,23 +181,6 @@ export async function getAllAuthors(): Promise<any[]> {
   }
 }
 
-// Get all WordPress pages
-export async function getAllPages(): Promise<any[]> {
-  const url = getUrl("/wp-json/wp/v2/pages");
-
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch pages: ${response.statusText}`);
-    }
-
-    const pages: any[] = await response.json();
-    return pages;
-  } catch (error) {
-    console.error("Error fetching all pages:", error);
-    throw error;
-  }
-}
 
 // Get featured media by ID
 export async function getFeaturedMediaById(id: number): Promise<any> {
