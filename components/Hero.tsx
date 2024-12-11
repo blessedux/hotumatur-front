@@ -19,20 +19,18 @@ const Hero: React.FC = () => {
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current && bookingRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect();
-        const bookingRect = bookingRef.current.getBoundingClientRect();
-        
         const centerX = containerRect.left + containerRect.width / 2;
         const centerY = containerRect.top + containerRect.height / 2;
-        
-        const deltaX = (e.clientX - centerX) / 20; // Reduced divisor for subtler movement
-        const deltaY = (e.clientY - centerY) / 20; // Reduced divisor for subtler movement
+
+        const deltaX = (e.clientX - centerX) / 20; // Subtle movement
+        const deltaY = (e.clientY - centerY) / 20; // Subtle movement
 
         setPosition({ x: deltaX, y: deltaY });
       }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    
+
     return () => {
       clearTimeout(timer);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -45,20 +43,20 @@ const Hero: React.FC = () => {
       className="relative w-full min-h-screen flex items-start justify-center pt-5"
     >
       {/* Fullscreen Background Video */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <div className="absolute inset-0 w-full h-full ">
         <iframe
           title="vimeo-player"
           src="https://player.vimeo.com/video/1034629379?h=84c5313326&autoplay=1&loop=1&muted=1&background=1"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         ></iframe>
       </div>
 
       {/* Overlay Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen w-full text-center text-white px-4">
         <Container>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
             <Balancer>Aventuras Guiadas por Expertos Locales</Balancer>
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
@@ -68,7 +66,7 @@ const Hero: React.FC = () => {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <Link href="/">Lorem Ipsum</Link>
+              <Link href="/" ><h4 className='text-white'>Lorem Ipsum</h4></Link>
             </Button>
             <Button variant="outline" asChild size="lg">
               <Link href="/posts">Dolor Sit Amet &rarr;</Link>
@@ -97,4 +95,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
