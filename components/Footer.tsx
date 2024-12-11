@@ -1,28 +1,59 @@
 'use client'
 
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 
 export default function Footer() {
+  const [windowWidth, setWindowWidth] = useState(0)
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const videoScale = windowWidth < 768 ? '250%' : '150%'
+
   return (
     <footer className="relative text-white overflow-hidden min-h-[600px] w-full">
-   {/* Video Background */}
-<div className="absolute inset-0 z-0 w-full h-full">
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-emerald-950/70 z-10" />
-  {/* Vimeo Embed */}
-  <iframe
-    src="https://player.vimeo.com/video/1037857996?autoplay=1&muted=1&loop=1&background=1"
-    className="absolute top-0 left-0 w-full h-full object-cover"
-    frameBorder="0"
-    allow="autoplay; fullscreen; picture-in-picture"
-    allowFullScreen
-    title="Footer Background Video"
-  ></iframe>
-</div>
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 w-full h-full">
+        {/* Blurred background for gaps */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(https://vumbnail.com/1037857996.jpg)`,
+            filter: 'blur(10px)',
+            transform: 'scale(1.1)',
+          }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-emerald-950/70 z-10" />
+        {/* Vimeo Embed */}
+        <div className="absolute inset-0 overflow-hidden">
+          <iframe
+            src="https://player.vimeo.com/video/1037857996?autoplay=1&muted=1&loop=1&background=1"
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              width: videoScale,
+              height: videoScale,
+              transform: 'translate(-50%, -50%)',
+              objectFit: 'cover',
+            }}
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            title="Footer Background Video"
+          ></iframe>
+        </div>
+      </div>
 
       {/* Main Footer Content */}
-      <div className="relative z-20 container mx-auto px-4 py-8">
-        <div className="flex flex-col items-center space-y-12">
+      <div className="relative z-20 w-full px-4 py-8">
+        <div className="flex flex-col items-center space-y-12 max-w-7xl mx-auto">
           {/* Location */}
           <div className="text-center">
             <p className="text-sm tracking-wider uppercase">
