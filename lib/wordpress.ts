@@ -3,7 +3,7 @@ import querystring from "query-string";
 
 // Utility function to construct URLs
 function getUrl(path: string, query?: Record<string, any>): string {
-  const baseUrl = process.env.WORDPRESS_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_WORDPRESS_URL;
   if (!baseUrl) {
     throw new Error("WORDPRESS_URL is not defined in environment variables.");
   }
@@ -37,8 +37,8 @@ export async function getWooCommerceProducts(
   const url = getUrl("/wp-json/wc/v3/products", query);
 
   // Ensure WooCommerce API credentials are available
-  const consumerKey = process.env.WC_CONSUMER_KEY;
-  const consumerSecret = process.env.WC_CONSUMER_SECRET;
+  const consumerKey = process.env.NEXT_PUBLIC_WC_CONSUMER_KEY;
+  const consumerSecret = process.env.NEXT_PUBLIC_WC_CONSUMER_SECRET;
 
   if (!consumerKey || !consumerSecret) {
     throw new Error(
@@ -87,7 +87,7 @@ export async function getAllPages(): Promise<WordPressPage[]> {
 
 // Redirect to WooCommerce Checkout
 export function redirectToCheckout(): void {
-  const baseUrl = process.env.WORDPRESS_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_WORDPRESS_URL;
   if (!baseUrl) {
     throw new Error("WORDPRESS_URL is not defined in environment variables.");
   }
@@ -100,28 +100,18 @@ export function redirectToCheckout(): void {
   }
 }
 
-// Fetch generic WordPress products
-export async function fetchProducts(query?: Record<string, any>): Promise<any[]> {
-  const url = getUrl("/wp-json/wp/v2/products", query);
 
+import { fetchProducts } from "./products"; // Asegúrate de que este import sea correcto
+(async function testFetchProducts() {
   try {
-    const response = await fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch products: ${response.statusText}`);
-    }
-
-    const products: any[] = await response.json();
-    return products;
+    const products = await fetchProducts();
+    console.log("Fetched products:", products);
   } catch (error) {
-    console.error("Error fetching WordPress products:", error);
-    throw error;
+    console.error("Error fetching products:", error);
   }
-}
+})();
+
+
 
 // Get a single post by its slug
 export async function getPostBySlug(slug: string): Promise<any> {

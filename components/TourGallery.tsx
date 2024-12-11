@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { fetchProducts } from "@/lib/wordpress";
+import { fetchProducts } from "../lib/products";
 import { Loader2 } from 'lucide-react';
 import TourCard from './TourCard';
 

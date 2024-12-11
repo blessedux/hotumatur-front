@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { useCart } from './CartProvider';
 import { Button } from "@/components/ui/button";
-import { fetchProducts } from '@/lib/wordpress'; // Import the fetchProducts function
+import { fetchProducts } from "../lib/products";
+
 
 // Define interfaces for products and categories
 interface Category {
