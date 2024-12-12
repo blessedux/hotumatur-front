@@ -6,6 +6,7 @@ import Team from "./components/team"
 import Testimonials from "./components/testimonials"
 import Partners from "./components/partners"
 import Gallery from "./components/gallery"
+import { FlightMap } from '@/components/flight-map'
 
 export const metadata: Metadata = {
   title: "Nosotros | Hotumatur",
@@ -17,10 +18,10 @@ export default function AboutPage() {
     <main className="min-h-screen bg-[#0a0d14]">
       <AboutHero />
       <PlanTrip />
-      <Services />
+      <Services />  
       <Team />
       <Testimonials />
-      <Partners />
+      <FlightMap />
       <Gallery />
     </main>
   )
