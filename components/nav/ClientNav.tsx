@@ -28,26 +28,19 @@ export const ClientNav = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <DropdownMenu label="Tours">
-            <Link
-              href="/tours/grupal"
-              className="block px-4 py-2 hover:bg-gray-100 rounded"
-            >
-              Tour Grupal
-            </Link>
-            <Link
-              href="/tours/privado"
-              className="block px-4 py-2 hover:bg-gray-100 rounded"
-            >
-              Tour Privado
-            </Link>
-            <Link
-              href="/tours/especial"
-              className="block px-4 py-2 hover:bg-gray-100 rounded"
-            >
-              Tour Especial
-            </Link>
-          </DropdownMenu>
+        <Link
+            href="/tours"
+            className="text-sm font-medium hover:text-emerald-500 transition-colors"
+          >
+            Tours
+          </Link>
+
+          <Link
+            href="/rentals"
+            className="text-sm font-medium hover:text-emerald-500 transition-colors"
+          >
+            Rentals
+          </Link>
           <Link
             href="/nosotros"
             className="text-sm font-medium hover:text-emerald-500 transition-colors"
@@ -72,15 +65,13 @@ export const ClientNav = () => {
         </div>
 
         {/* Mobile Hamburger Menu */}
-        <div className="flex justify-center md:hidden w-full">
-  <Button
-    variant="ghost"
-    className="bg-white shadow-lg p-2 rounded-full"
-    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-  >
-    ☰
-  </Button>
-</div>
+        <Button
+          variant="ghost"
+          className="md:hidden "
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          ☰
+        </Button>
       </div>
 
       {/* Mobile Menu */}

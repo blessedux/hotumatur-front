@@ -2,45 +2,45 @@ export default function ToursPage() {
     // Información de las tarjetas de tours
     const tours = [
       {
-        label: "Grupal",
-        src: "http://hotumatur.com/wp-content/uploads/2024/12/amanecertongariki.webp",
-        title: "Amanecer en Tongariki",
-        description: "Disfruta de un amanecer inolvidable en el icónico Ahu Tongariki.",
+        label: "Exclusivo",
+        src: "https://backend.hotumatur.com/wp-content/uploads/2024/12/20230410_125752-1024x768-1.webp",
+        title: "Arriendo de ATV",
+        description: "Disfruta de un recorrido en atv inolvidable.",
         price: "$50 USD",
       },
       {
-        label: "Grupal",
-        src: "http://hotumatur.com/wp-content/uploads/2024/12/orongo.webp",
-        title: "Tour Orongo",
-        description: "Explora el sitio ceremonial Orongo y descubre su historia.",
+        label: "Exclusivo",
+        src: "https://backend.hotumatur.com/wp-content/uploads/2024/12/snorquel.webp",
+        title: "Arriendo de snorkel",
+        description: "Explora el mundo subacuático y admira su belleza.",
         price: "$249 USD",
       },
       {
-        label: "Grupal",
-        src: "http://hotumatur.com/wp-content/uploads/2024/12/ahu-akivi.webp",
-        title: "Aventura en Rano Kau",
-        description: "Sumérgete en la majestuosidad del volcán Rano Kau.",
+        label: "Exclusivo",
+        src: "https://backend.hotumatur.com/wp-content/uploads/2024/12/pexels-deniz-coskun-323518659-14083476-scaled.webp",
+        title: "Arriendo de caballos",
+        description: "Disfruta de un lindo paseo a caballo con una vista increible.",
         price: "$199 USD",
       },
       {
-        label: "Grupal",
-        src: "http://hotumatur.com/wp-content/uploads/2024/12/anakena.webp",
-        title: "Playa Anakena",
-        description: "Relájate en la hermosa playa Anakena con sus arenas blancas.",
+        label: "Exclusivo",
+        src: "https://backend.hotumatur.com/wp-content/uploads/2024/11/suzuki-jimny-sierra-4sport-1659104806-1-1.png",
+        title: "Arriendo de vehiculos",
+        description: "Explora toda la isla y su belleza con un vehiculo.",
         price: "$99 USD",
       },
       {
-        label: "Grupal",
-        src: "http://hotumatur.com/wp-content/uploads/2024/12/poike-volcano-view-from.webp",
-        title: "Ruta de Moáis",
-        description: "Descubre las estatuas más emblemáticas de Isla de Pascua.",
+        label: "Exclusivo",
+        src: "https://backend.hotumatur.com/wp-content/uploads/2024/12/pexels-reojuve-25204577-scaled.webp",
+        title: "Arriendo de pesca",
+        description: "Disfruta de un buen momento de tranquilidad pescando.",
         price: "$219 USD",
       },
       {
-        label: "Grupal",
+        label: "Exclusivo",
         src: "http://hotumatur.com/wp-content/uploads/2024/12/tour2dias.webp",
-        title: "Tour Completo",
-        description: "Conoce todos los rincones de la isla en un recorrido completo.",
+        title: "NOSE",
+        description: "NOSE.",
         price: "$399 USD",
       },
     ];
@@ -58,9 +58,8 @@ export default function ToursPage() {
               <p className="mt-4 text-lg">
                 Vive la experiencia única de una de las islas más misteriosas y hermosas del mundo.
               </p>
-              
               <button className="mt-6 bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600">
-                Explorar Paquetes
+                Explorar Rentals
               </button>
             </div>
           </div>
@@ -69,7 +68,7 @@ export default function ToursPage() {
         {/* Packages Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Paquetes De Turismo Grupal</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">Rentals</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {tours.map((tour, index) => (
                 <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden relative">
