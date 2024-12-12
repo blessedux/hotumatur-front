@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "../components/Footer";
 import { ClientNav } from "../components/nav/ClientNav";
+import Preloader from '@/components/Preloader'
 
 import "./globals.css";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen font-sans antialiased", fontSans.variable, fontSatisfy.variable)}
       >
+          
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
