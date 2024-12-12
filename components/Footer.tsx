@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
+import { FaWhatsapp } from 'react-icons/fa'
 
 export default function Footer() {
   const [windowWidth, setWindowWidth] = useState(0)
@@ -59,8 +61,10 @@ export default function Footer() {
             <p className="text-sm tracking-wider uppercase">
               Ubicados en Hanga Roa, Rapa Nui{' '}
               <Link
-                href="/ubicacion"
+                href="https://www.google.com/maps/place/Hotumatur+Rapa+Nui/@-27.1515001,-109.4394778,17z/data=!3m1!4b1!4m6!3m5!1s0x9947fb91364cf45b:0xe03a9f249c442166!8m2!3d-27.1515002!4d-109.4346069!16s%2Fg%2F11vlw42ghx?entry=ttu&g_ep=EgoyMDI0MTIwOS4wIKXMDSoASAFQAw%3D%3D"
                 className="underline underline-offset-4 hover:text-emerald-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Ver en el mapa
               </Link>
@@ -69,53 +73,73 @@ export default function Footer() {
 
           {/* Contact Numbers */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center w-full max-w-4xl">
-            <div>
-              <h3 className="text-sm tracking-wider uppercase mb-2">Reservaciones</h3>
-              <p className="text-2xl">+506 2222 3333</p>
-            </div>
-            <div>
-              <h3 className="text-sm tracking-wider uppercase mb-2">WhatsApp</h3>
-              <p className="text-2xl">+506 8888 9999</p>
-            </div>
-            <div>
-              <h3 className="text-sm tracking-wider uppercase mb-2">Email</h3>
-              <p className="text-lg">info@tuempresa.com</p>
-            </div>
+            <Link
+              href="tel:+56962064520"
+              className="relative group bg-white/10 rounded-lg p-6 transition-all duration-300 hover:bg-white/20"
+            >
+              <PhoneIcon className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 text-white opacity-5 group-hover:opacity-10 transition-opacity duration-300" />
+              <h3 className="text-sm tracking-wider uppercase mb-2 relative z-10">Reservaciones</h3>
+              <p className="text-2xl relative z-10">+56 9 6206 4520</p>
+            </Link>
+            <Link
+              href="https://wa.me/56962064520"
+              className="relative group bg-white/10 rounded-lg p-6 transition-all duration-300 hover:bg-white/20"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 text-white opacity-5 group-hover:opacity-10 transition-opacity duration-300" />
+              <h3 className="text-sm tracking-wider uppercase mb-2 relative z-10">WhatsApp</h3>
+              <p className="text-2xl relative z-10">+56 9 6206 4520</p>
+            </Link>
+            <Link
+              href="mailto:info@hotumatur.com"
+              className="relative group bg-white/10 rounded-lg p-6 transition-all duration-300 hover:bg-white/20"
+            >
+              <EnvelopeIcon className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 text-white opacity-5 group-hover:opacity-10 transition-opacity duration-300" />
+              <h3 className="text-sm tracking-wider uppercase mb-2 relative z-10">Email</h3>
+              <p className="text-lg relative z-10">info@hotumatur.com</p>
+            </Link>
           </div>
 
           {/* Social Media */}
           <div className="flex space-x-6">
             <Link
-              href="#"
+              href="https://www.tripadvisor.cl/Attraction_Review-g316040-d26626022-Reviews-Hotumatur_RapaNui-Easter_Island.html"
               className="hover:text-emerald-300 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="TripAdvisor"
             >
               <img
-                src="http://hotumatur.com/wp-content/uploads/2024/12/pngwing.com_.png"
+                src="https://backend.hotumatur.com/wp-content/uploads/2024/12/pngwing.com_.png"
                 alt="TripAdvisor"
-                className="w-6 h-6 sm:w-4 sm:h-4"
+                className="w-8 h-8"
               />
             </Link>
             <Link
-              href="#"
+              href="https://www.instagram.com/hotumatur/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-emerald-300 transition-colors"
               aria-label="Instagram"
             >
               <img
-                src="http://hotumatur.com/wp-content/uploads/2024/12/instagram-icon-white-on-black-circle.png"
+                src="https://backend.hotumatur.com/wp-content/uploads/2024/12/instagram-icon-white-on-black-circle.png"
                 alt="Instagram"
-                className="w-8 h-6 sm:w-4 sm:h-4"
+                className="w-11 h-8"
               />
             </Link>
             <Link
-              href="#"
+              href="https://www.tiktok.com/@hotumatur.rapanui"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-emerald-300 transition-colors"
               aria-label="TikTok"
             >
               <img
-                src="http://hotumatur.com/wp-content/uploads/2024/12/e10e3f21d3b4e0f40b04b8fee7f40da4.png"
+                src="https://backend.hotumatur.com/wp-content/uploads/2024/12/tiktok_logo.png"
                 alt="TikTok"
-                className="w-6 h-6 sm:w-4 sm:h-4"
+                className="w-8 h-8"
               />
             </Link>
           </div>
@@ -169,6 +193,10 @@ export default function Footer() {
             >
               Política de Privacidad
             </Link>
+          </div>
+          {/* Copyright */}
+          <div className="text-sm mt-8 mb-2">
+            <p>&copy; {new Date().getFullYear()} Hotumatur. Todos los derechos reservados.</p>
           </div>
         </div>
       </div>
