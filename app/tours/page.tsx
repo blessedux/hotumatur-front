@@ -93,52 +93,8 @@ export default function ToursPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 bg-yellow-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">¿Por qué elegirnos?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <img
-                src="http://hotumatur.com/wp-content/uploads/2024/12/anakena.webp"
-                alt="Seguridad"
-                className="mx-auto h-16 mb-4"
-              />
-              <h3 className="text-xl font-bold">Seguridad Garantizada</h3>
-              <p className="mt-2 text-gray-600">Disfruta de la tranquilidad en cada tour junto a nuestros guias expertos.</p>
-            </div>
-            <div className="text-center">
-              <img
-                src="http://hotumatur.com/wp-content/uploads/2024/12/anakena.webp"
-                alt="Guías Expertos"
-                className="mx-auto h-16 mb-4"
-              />
-              <h3 className="text-xl font-bold">Guías Locales</h3>
-              <p className="mt-2 text-gray-600">
-                Aprende sobre la historia y cultura de la isla con expertos.
-              </p>
-            </div>
-            <div className="text-center">
-              <img
-                src="http://hotumatur.com/wp-content/uploads/2024/12/anakena.webp"
-                alt="Experiencia Cultural"
-                className="mx-auto h-16 mb-4"
-              />
-              <h3 className="text-xl font-bold">Experiencia Cultural</h3>
-              <p className="mt-2 text-gray-600">
-                Vive momentos únicos que te conectarán con la isla.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-6">
-        <div className="container mx-auto text-center">
-          <p>© 2024 Isla de Pascua Tours. Todos los derechos reservados.</p>
-        </div>
-      </footer>
     </div>
   );
 }
