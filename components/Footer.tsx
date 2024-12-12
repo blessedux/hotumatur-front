@@ -147,17 +147,17 @@ export default function Footer() {
           {/* Logos Section */}
           <div className="flex items-center justify-center gap-8 mt-12 flex-wrap">
             <img
-              src="http://hotumatur.com/wp-content/uploads/2024/12/selloR2x-300x300-1.png"
+              src="https://backend.hotumatur.com/wp-content/uploads/2024/12/selloR2x-300x300-1.png"
               alt="Logo 1"
               className="h-20 w-auto sm:h-12 object-contain"
             />
             <img
-              src="http://hotumatur.com/wp-content/uploads/2024/12/logo-chilecompra-original.png"
+              src="https://backend.hotumatur.com/wp-content/uploads/2024/12/logo-chilecompra-original.png"
               alt="Logo 2"
               className="h-20 w-auto sm:h-12 object-contain"
             />
             <img
-              src="http://hotumatur.com/wp-content/uploads/2024/11/Hotumatur_header_logo.png"
+              src="https://backend.hotumatur.com/wp-content/uploads/2024/11/Hotumatur_header_logo.png"
               alt="Logo 3"
               className="h-20 w-auto sm:h-12 object-contain"
             />
