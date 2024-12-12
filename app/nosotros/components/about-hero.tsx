@@ -54,7 +54,7 @@ export default function ContactHeroVideo() {
       {/* Content Overlay */}
       <div className="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-          Contacto
+          Nosotros
         </h1>
         <nav className="flex" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2 text-sm">
@@ -67,7 +67,7 @@ export default function ContactHeroVideo() {
               <span className="mx-2">/</span>
             </li>
             <li className="text-gray-300" aria-current="page">
-              Contacto
+              Nosotros
             </li>
           </ol>
         </nav>
