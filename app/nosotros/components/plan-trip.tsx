@@ -9,23 +9,23 @@ export default function PlanTrip() {
           <div className="relative">
             <div className="grid gap-4">
               <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Vista submarina"
+                src="https://backend.hotumatur.com/wp-content/uploads/2024/11/Mirador-Rano-Kau-scaled-1.jpg"
+                alt="Vista desde el Mirador Rano Kau"
                 width={600}
                 height={400}
                 className="rounded-lg"
               />
               <div className="grid grid-cols-2 gap-4">
                 <Image
-                  src="/placeholder.svg?height=300&width=400"
-                  alt="Grupo de turistas"
+                  src="https://backend.hotumatur.com/wp-content/uploads/2024/11/rapa-nui-tapati-1-1.png"
+                  alt="Tapati Rapa Nui Festival"
                   width={400}
                   height={300}
                   className="rounded-lg"
                 />
                 <Image
-                  src="/placeholder.svg?height=300&width=400"
-                  alt="Yate de lujo"
+                  src="https://backend.hotumatur.com/wp-content/uploads/2024/11/G0291580-scaled.webp"
+                  alt="Vista submarina en Rapa Nui"
                   width={400}
                   height={300}
                   className="rounded-lg"
@@ -90,4 +90,3 @@ export default function PlanTrip() {
     </section>
   )
 }
-
