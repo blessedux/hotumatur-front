@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
-export default function NosotrosHero() {
+export default function ContactHeroVideo() {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -15,24 +16,24 @@ export default function NosotrosHero() {
   const videoScale = windowWidth < 768 ? '250%' : '150%'
 
   return (
-    <section className="relative h-[70vh] min-h-[400px] w-full overflow-hidden text-white">
+    <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0 -z-10 w-full h-full">
-        {/* Blurred background fallback */}
-        <div
+      <div className="absolute inset-0 z-0 w-full h-full">
+        {/* Blurred background for gaps */}
+        <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(https://vumbnail.com/1037857996.jpg)`,
+            backgroundImage: `url(https://vimeo.com/1038385534)`,
             filter: 'blur(10px)',
             transform: 'scale(1.1)',
           }}
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50 z-10" />
-        {/* Vimeo Background Video */}
+        {/* Vimeo Embed */}
         <div className="absolute inset-0 overflow-hidden">
           <iframe
-            src="https://player.vimeo.com/video/1037857996?autoplay=1&muted=1&loop=1&background=1"
+            src="https://player.vimeo.com/video/1034629379?h=84c5313326&autoplay=1&loop=1&muted=1&background=1"
             style={{
               position: 'absolute',
               top: '50%',
@@ -45,20 +46,33 @@ export default function NosotrosHero() {
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
-            title="Nosotros Hero Background Video"
+            title="Contact Hero Background Video"
           ></iframe>
         </div>
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-20 flex h-full flex-col justify-center items-center text-center px-4">
-        <h1 className="text-4xl font-bold md:text-5xl lg:text-6xl">
+      {/* Content Overlay */}
+      <div className="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
           Nosotros
         </h1>
-        <p className="mt-4 text-lg max-w-3xl">
-          Conoce nuestra historia, misión y lo que nos impulsa a ofrecer las mejores experiencias en Rapa Nui.
-        </p>
+        <nav className="flex" aria-label="Breadcrumb">
+          <ol className="flex items-center space-x-2 text-sm">
+            <li>
+              <Link href="/" className="hover:text-gray-300 transition-colors">
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <span className="mx-2">/</span>
+            </li>
+            <li className="text-gray-300" aria-current="page">
+              Nosotros
+            </li>
+          </ol>
+        </nav>
       </div>
     </section>
   )
 }
+
